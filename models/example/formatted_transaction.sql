@@ -9,12 +9,12 @@ WITH transformed_data AS (
   SELECT
     transactionamount AS amt,
     age,
-    12 AS trans_month,
-    2020 AS trans_year,
+    timestamp AS timestamp,
+    EXTRACT(MONTH FROM timestamp) AS trans_month,
+    EXTRACT(YEAR FROM timestamp) AS trans_year,
     homelatitude - transactionlatitude AS latitudinal_distance,
     homelongitude - transactionlongitude AS longitudinal_distance,
     cardnumber,
-    timestamp AS timestamp,
     transactionlatitude,
     transactionlongitude,
   FROM
